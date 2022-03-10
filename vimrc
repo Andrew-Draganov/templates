@@ -65,6 +65,9 @@ set scrolloff=3
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
+set mouse=a
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
 
 " Move up/down editor lines
 nnoremap j gj
@@ -146,3 +149,18 @@ let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 " colorscheme solarized
+
+
+" Tex compilation and automatic pdf opening
+" https://tex.stackexchange.com/a/466904
+autocmd FileType tex nmap <buffer> <C-T> :!xelatex %<CR>
+autocmd FileType tex nmap <buffer> T :!open -a Skim %:r.pdf<CR><CR>
+
+" Compile tex files with bibtex reference
+autocmd FileType tex nmap <buffer> <C-Y> :!compile_tex.sh %:r<CR>
+autocmd FileType tex nmap <buffer> <C-U> :!compile_xetex.sh %:r<CR>
+
+augroup WrapLineInTeXFile
+    autocmd!
+    autocmd FileType tex setlocal wrap
+augroup END
