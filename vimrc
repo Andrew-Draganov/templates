@@ -148,3 +148,4 @@ nnoremap <expr> j v:count == 0 ? 'gj' : "\<Esc>".v:count.'j'
 " No unnecessary highlighting for underscores and the like in tex files
 let g:tex_no_error=1
 
+:nnoremap m i<Cr><Esc>
