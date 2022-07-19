@@ -151,7 +151,7 @@ let g:tex_no_error=1
 " Line break at cursor without going into insert mode
 :nnoremap m i<Cr><Esc>
 
-let file_name = expand('%:t:r')
+set mouse=a
 autocmd FileType tex nmap <buffer> <C-T> :!pdflatex %<CR>
 autocmd FileType tex nmap <buffer> <C-Y> :!compile_tex.sh %:r<CR>
 autocmd FileType tex nmap <buffer> T :!open -a Skim %:r.pdf<CR><CR>
