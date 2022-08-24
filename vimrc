@@ -157,6 +157,8 @@ function RecursiveLinebreak()
 endfunction
 
 set mouse=a
+autocmd FileType tex nmap <buffer> <C-A> :set fo+=a <CR>
+autocmd FileType tex nmap <buffer> <C-S> :set fo-=a <CR>
 autocmd FileType tex nmap <buffer> <C-J> :call RecursiveLinebreak() <CR>
 autocmd FileType tex nmap <buffer> <C-T> :!pdflatex %<CR>
 autocmd FileType tex nmap <buffer> <C-Y> :!compile_tex.sh %:r<CR>
